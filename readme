@@ -1,1 +1,51 @@
 This is Josh Barney's version of the microwave radiative transfer code RADTRAN from AFRL but written in python.
+
+Pytran Â© 2011 Joshua Barney
+
+requirements:
+	python 3.x
+	sqlite
+	firefox (for plotting results)
+
+example:
+$ python3 PyTran.py 
+Welcome to PyTran. Copyright 2011 Joshua Barney
+Enter 'help' for a list of commands
+>>>help
+set atmosphere
+set spectrum
+start simulation
+store results
+plot results
+exit
+exit
+>>>set atmosphere
+Please enter the atmosphere name TIGR0001
+Atmosphere set
+>>>set spectrum
+Please enter low end frequency (GHz) for simulation : 10
+Please enter high end frequency (GHz) for simulation : 50
+Please enter the step size (GHz) : .1
+Spectrum set
+>>>start simulation
+Running simulation
+starting worker process
+starting worker process
+starting worker process
+Simulation accomplished
+>>>store results
+Please enter name of result set : storeMePlease
+Results stored
+>>>plot results
+>>>exit
+
+the database currently holds about 1700 TIGR radiosonds with name TIGRXXXX where XXXX can be 0001-1700ish.
+
+The user interface is pretty brittle right now. It is mostly a proof of concept.
+
+Tests:
+there is a file to test the results of PyTran against results obtained from RADTRAN on various frequencies from 1.4 GHZ to 400 GHZ.
+To run:
+$ python3 ray_test_coefficients.py
+
+it should print a bunch of numbers and then give a time for the test run followed by 'OK' if the test was successful.
